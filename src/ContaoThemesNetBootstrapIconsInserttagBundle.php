@@ -16,6 +16,6 @@ namespace ContaoThemesNet\BootstrapIconsInserttag;
 
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
-class ContaoThemesNetBaterialIconsInserttagBundle extends Bundle
+class ContaoThemesNetBootstrapIconsInserttagBundle extends Bundle
 {
 }

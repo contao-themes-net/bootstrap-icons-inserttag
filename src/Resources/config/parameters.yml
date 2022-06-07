@@ -1,0 +1,6 @@
+parameters:
+    bootstrap_config:
+        useCDN: true
+        useLocal: true
+        useSvgIcons: true
+        useFontIcons: true
