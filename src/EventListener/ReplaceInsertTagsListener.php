@@ -16,15 +16,8 @@ namespace ContaoThemesNet\BootstrapIconsInserttag\EventListener;
 
 use Contao\System;
 
-class HookListener
+class ReplaceInsertTagsListener
 {
-    private $bootstrapConfig;
-
-    public function __construct($framework, $bootstrapConfig)
-    {
-        $this->bootstrapConfig = $bootstrapConfig;
-    }
-
     /**
      * Replace the insert tag.
      *
@@ -34,6 +27,7 @@ class HookListener
      */
     public function onReplaceInsertTags($tag)
     {
+dump($tag);
         if (preg_match('/^bi([bsrl]?)\:\:/', $tag)) {
             return $this->replaceIconInsertTag($tag);
         }
@@ -46,24 +40,22 @@ class HookListener
      *
      * @param string $tag the given tag
      *
-     * @return string
+     * @return string the html code
      */
     private function replaceIconInsertTag($tag)
     {
-        $c = $this->bootstrapConfig;
-dump($c);
-        if($c['useCDN']) {
-            $GLOBALS['TL_CSS'][] = "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css";
-            $GLOBALS['TL_JAVASCRIPT'][] = "https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js";
-        }
+        // other user defined css style arguments
+        $classes = '';
 
         $parts = explode('::', $tag);
-        $classes = '';
-        if (null !== $parts[2]) {
-            $classes = $parts[2].' ';
-        }
+dump($parts);
+        [, $name, $classes] = $parts;
+dump("name: $name classes: $classes");
 
-        $tag = '<i class="'.$parts[1]. ' ' .$classes.'bi"></i>';
+        $classes = $classes ? " $classes" : '';
+
+        $tag = "<div>[tag:$tag class='bi-{$name}{$classes}' result:<i class='bi-$name{$classes}'></i>]</div>";
+        #$tag = "<i class='bi-$name{$class}'{$style}></i>";
 dump($tag);
         return $tag;
     }

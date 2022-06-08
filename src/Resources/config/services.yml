@@ -9,10 +9,3 @@ services:
                 - ["setContainer", ["@service_container"]]
     _defaults:
         public: true
-
-    ctn.bootstrapiconsinserttag.listener.hooks:
-        class: ContaoThemesNet\BootstrapIconsInserttag\EventListener\HookListener
-        public: true
-        arguments:
-            - "@contao.framework"
-            - "%bootstrap_config%"

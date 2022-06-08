@@ -12,4 +12,5 @@
  * file that was distributed with this source code.
  */
 
-$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = ['ctn.bootstrapiconsinserttag.listener.hooks', 'onReplaceInsertTags'];
+$GLOBALS['TL_HOOKS']['replaceInsertTags'][] = ['ctn.bootstrapiconsinserttag.listener.replaceinserttags', 'onReplaceInsertTags'];
+$GLOBALS['TL_HOOKS']['generatePage'][] = ['ctn.bootstrapiconsinserttag.listener.generatepage', 'onGeneratePage'];
