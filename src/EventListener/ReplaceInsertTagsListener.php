@@ -19,6 +19,19 @@ use Contao\System;
 class ReplaceInsertTagsListener
 {
     /**
+     * @var
+     */
+    private $bootstrapConfig;
+
+    /**
+     * @param $bootstrapConfig
+     */
+    public function __construct($bootstrapConfig)
+    {
+        $this->bootstrapConfig = $bootstrapConfig;
+    }
+
+    /**
      * Replace the insert tag.
      *
      * @param string $tag the insert tag
@@ -27,7 +40,6 @@ class ReplaceInsertTagsListener
      */
     public function onReplaceInsertTags($tag)
     {
-dump($tag);
         if (preg_match('/^bi([bsrl]?)\:\:/', $tag)) {
             return $this->replaceIconInsertTag($tag);
         }
@@ -44,19 +56,24 @@ dump($tag);
      */
     private function replaceIconInsertTag($tag)
     {
-        // other user defined css style arguments
-        $classes = '';
+        extract($this->bootstrapConfig);
 
         $parts = explode('::', $tag);
-dump($parts);
+
         [, $name, $classes] = $parts;
-dump("name: $name classes: $classes");
 
         $classes = $classes ? " $classes" : '';
 
-        $tag = "<div>[tag:$tag class='bi-{$name}{$classes}' result:<i class='bi-$name{$classes}'></i>]</div>";
-        #$tag = "<i class='bi-$name{$class}'{$style}></i>";
-dump($tag);
+        if($use['icon_font'] === true) {
+            $tag = "<i class='bi-$name{$classes}'></i>";
+        }
+        elseif($use['svg'] === true) {
+            $tag = "<img src='bundles/contaothemesnetbootstrapiconsinserttag/img/bootstrap/{$name}.svg' class='{$classes}' alt='Bootstrap'>";
+        }
+        else {
+            $tag = "<i>check your parameters.yml</i>";
+        }
+
         return $tag;
     }
 }

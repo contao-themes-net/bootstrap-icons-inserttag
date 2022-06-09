@@ -9,5 +9,4 @@ services:
         class: ContaoThemesNet\BootstrapIconsInserttag\EventListener\ReplaceInsertTagsListener
         public: true
         arguments:
-            - "@contao.framework"
             - "%bootstrap_config%"

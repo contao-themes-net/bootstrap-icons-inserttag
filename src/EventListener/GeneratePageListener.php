@@ -34,8 +34,14 @@ use Contao\PageRegular;
  */
 class GeneratePageListener
 {
+    /**
+     * @var
+     */
     private $bootstrapConfig;
 
+    /**
+     * @param $bootstrapConfig
+     */
     public function __construct($bootstrapConfig)
     {
         $this->bootstrapConfig = $bootstrapConfig;
@@ -46,26 +52,20 @@ class GeneratePageListener
      * @param LayoutModel $layout      the active page layout applied for rendering the page
      * @param PageRegular $pageRegular the current page type object
      */
-    #public function __invoke(PageModel $pageModel, LayoutModel $layout, PageRegular $pageRegular): void
     public function onGeneratePage(PageModel $pageModel, LayoutModel $layout, PageRegular $pageRegular): void
     {
         global $objPage;
 
-        $c = $this->bootstrapConfig;
+        extract($this->bootstrapConfig);
 
-        if($c['useCDN']) {
-            $GLOBALS['TL_HEAD'][] = "
-<style>
-.red { color: red; }
-.blue { color: blue; }
-.fs-3 { font-size: 3rem; }
-.fs-6 { font-size: 6rem; }
-.bg-red: { background-color: #ff0000; }
-}
-</style>";
-
-            $GLOBALS['TL_CSS'][] = "https://cdn.jsdelivr.net/npm/bootstrap-icons@1.8.3/font/bootstrap-icons.css";
-            $GLOBALS['TL_JAVASCRIPT'][] = "https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.bundle.min.js";
+        if($source['use_cdn'] === true) {
+            // use cdn
+            $GLOBALS['TL_CSS'][] = $source['css_source'];
+            $GLOBALS['TL_JAVASCRIPT'][] = $source['js_source'];
+        } else {
+            // use local
+            $GLOBALS['TL_CSS'][] = "bundles/contaothemesnetbootstrapiconsinserttag/css/bootstrap-icons.css";
+            $GLOBALS['TL_JAVASCRIPT'][] = "bundles/contaothemesnetbootstrapiconsinserttag/js/bootstrap.bundle.min.js";
         }
     }
 }
