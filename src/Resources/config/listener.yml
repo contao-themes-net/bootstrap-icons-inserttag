@@ -1,0 +1,12 @@
+services:
+
+    ctn.bootstrapiconsinserttag.listener.generatepage:
+        class: ContaoThemesNet\BootstrapIconsInserttag\EventListener\GeneratePageListener
+        arguments:
+            - "%bootstrap_config%"
+
+    ctn.bootstrapiconsinserttag.listener.replaceinserttags:
+        class: ContaoThemesNet\BootstrapIconsInserttag\EventListener\ReplaceInsertTagsListener
+        public: true
+        arguments:
+            - "%bootstrap_config%"
