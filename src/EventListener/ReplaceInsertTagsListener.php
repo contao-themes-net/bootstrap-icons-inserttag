@@ -1,20 +1,8 @@
 <?php
 
-/*
- * Bootstrap Icons Inserttag Bundle for Contao Open Source CMS
- *
- * Copyright (c) 2019 pdir / digital agentur // pdir GmbH
- * @package    bootstrap-icons-inserttag
- * @link       https://github.com/contao-themes-net/bootstrap-icons-inserttag
- * @author     Philipp Seibt <develop@pdir.de>
- * @license    LGPL-3.0-or-later
- * For the full copyright and license information, please view the LICENSE
- * file that was distributed with this source code.
- */
+declare(strict_types=1);
 
 namespace ContaoThemesNet\BootstrapIconsInserttag\EventListener;
-
-use Contao\System;
 
 class ReplaceInsertTagsListener
 {
@@ -66,7 +54,7 @@ class ReplaceInsertTagsListener
         $style = empty($styles) ? '' : " style='$styles'";
 
         if($use['icon_font'] === true) {
-            $tag = "<i class='bi-$name{$classes}'$style></i>";
+            $tag = "<i class='bi bi-$name{$classes}'$style></i>";
         }
         elseif($use['svg'] === true) {
             $tag = "<img src='bundles/contaothemesnetbootstrapiconsinserttag/img/bootstrap/{$name}.svg' class='{$classes}'$style alt='$name'>";
