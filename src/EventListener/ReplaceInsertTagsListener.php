@@ -61,7 +61,7 @@ class ReplaceInsertTagsListener
         $parts = explode('::', $tag);
 
         [, $name, $classes, $styles] = $parts;
-dump("name: $name, classes: $classes styles: $styles");
+
         $classes = $classes ? " $classes" : '';
         $style = empty($styles) ? '' : " style='$styles'";
 
@@ -69,7 +69,7 @@ dump("name: $name, classes: $classes styles: $styles");
             $tag = "<i class='bi-$name{$classes}'$style></i>";
         }
         elseif($use['svg'] === true) {
-            $tag = "<img src='bundles/contaothemesnetbootstrapiconsinserttag/img/bootstrap/{$name}.svg' class='{$classes}' alt='$name'>";
+            $tag = "<img src='bundles/contaothemesnetbootstrapiconsinserttag/img/bootstrap/{$name}.svg' class='{$classes}'$style alt='$name'>";
         }
         else {
             $tag = "<i>check your parameters.yml</i>";
