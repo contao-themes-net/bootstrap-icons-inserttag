@@ -46,6 +46,14 @@
         "source": "https://github.com/contao-themes-net/bootstrap-icons-inserttag",
         "donate": "https://contao-themes.net/sponsoring.html"
     },
+    "scripts": {
+        "all": [
+            "@cs-fixer",
+            "@phpunit"
+        ],
+        "cs-fixer": "@php vendor/bin/ecs check src/ tests/ --fix --ansi",
+        "phpunit": "@php vendor\\bin\\phpunit --configuration phpunit.xml --coverage-text --log-junit report.xml"
+    },
     "funding": [
         {
             "type": "patreon",

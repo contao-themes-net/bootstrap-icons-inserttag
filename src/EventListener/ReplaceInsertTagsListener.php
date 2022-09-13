@@ -40,7 +40,7 @@ class ReplaceInsertTagsListener
      */
     public function onReplaceInsertTags($tag)
     {
-        if (preg_match('/^bi([bsrl]?)\:\:/', $tag)) {
+        if (preg_match('/^bi([bsrl]?)::/', $tag)) {
             return $this->replaceIconInsertTag($tag);
         }
 
@@ -60,15 +60,16 @@ class ReplaceInsertTagsListener
 
         $parts = explode('::', $tag);
 
-        [, $name, $classes] = $parts;
-
+        [, $name, $classes, $styles] = $parts;
+dump("name: $name, classes: $classes styles: $styles");
         $classes = $classes ? " $classes" : '';
+        $style = empty($styles) ? '' : " style='$styles'";
 
         if($use['icon_font'] === true) {
-            $tag = "<i class='bi-$name{$classes}'></i>";
+            $tag = "<i class='bi-$name{$classes}'$style></i>";
         }
         elseif($use['svg'] === true) {
-            $tag = "<img src='bundles/contaothemesnetbootstrapiconsinserttag/img/bootstrap/{$name}.svg' class='{$classes}' alt='Bootstrap'>";
+            $tag = "<img src='bundles/contaothemesnetbootstrapiconsinserttag/img/bootstrap/{$name}.svg' class='{$classes}' alt='$name'>";
         }
         else {
             $tag = "<i>check your parameters.yml</i>";
