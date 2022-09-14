@@ -42,9 +42,13 @@ Das Ergebnis könnte - je nach Definition der Klassen - so aussehen:
 
 **Beispiel:**
 
+    // für svg
     {{bi::badge-3d-fill::class1 class2::width:50px;background-color:orangered;border-radius: 50px;}}
 
-Das Ergebnis sollto so aussehen:
+    // für icon font
+    {{bi::badge-4k-fill::class1 class2::font-size:3em;background-color:orangered;border-radius: 50px;}}
+
+Das Ergebnis sollte so aussehen:
 
 <img src='src/Resources/public/img/bootstrap/badge-3d-fill.svg' style="width:50px;background-color:yellow;border-radius: 50px;" alt="badge-3d"/>
 <img src='src/Resources/public/img/bootstrap/badge-4k-fill.svg' style="width:50px;background-color:orangered;border-radius: 50px;" alt="badge-4k"/>
@@ -133,7 +137,11 @@ The result could - depending on the definition of the classes - look like this:
 
 **Beispiel:**
 
+    // for svg
     {{bi::badge-3d-fill::class1 class2::width:50px;background-color:orangered;border-radius: 50px;}}
+
+    // for icon font
+    {{bi::badge-4k-fill::class1 class2::font-size:3em;background-color:orangered;border-radius: 50px;}}
 
 The result could - depending on the definition of the classes - look like this:
 

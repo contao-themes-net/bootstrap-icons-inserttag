@@ -25,7 +25,7 @@
         "contao/easy-coding-standard": "^3.0",
         "php-http/guzzle6-adapter": "^1.1",
         "php-http/message-factory": "^1.0.2",
-        "phpunit/phpunit": "^5.7.26",
+        "phpunit/phpunit": "^5.7.26 || ^9.5",
         "symfony/phpunit-bridge": "^3.2"
     },
     "extra": {

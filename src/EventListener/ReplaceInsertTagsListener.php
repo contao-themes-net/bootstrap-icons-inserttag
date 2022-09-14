@@ -48,7 +48,7 @@ class ReplaceInsertTagsListener
 
         $parts = explode('::', $tag);
 
-        [, $name, $classes, $styles] = $parts;
+        @[, $name, $classes, $styles] = $parts;
 
         $classes = $classes ? " $classes" : '';
         $style = empty($styles) ? '' : " style='$styles'";
