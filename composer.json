@@ -13,7 +13,7 @@
     ],
     "require": {
         "php": "^7.0 || ^8.0",
-        "contao/core-bundle": "^4.4"
+        "contao/core-bundle": "^4.4 || ^5.0"
     },
     "conflict": {
         "contao/core": "*",
@@ -25,7 +25,7 @@
         "contao/easy-coding-standard": "^3.0",
         "php-http/guzzle6-adapter": "^1.1",
         "php-http/message-factory": "^1.0.2",
-        "phpunit/phpunit": "^5.7.26",
+        "phpunit/phpunit": "^5.7.26 || ^9.5",
         "symfony/phpunit-bridge": "^3.2"
     },
     "extra": {
@@ -45,6 +45,14 @@
         "issues": "https://github.com/contao-themes-net/bootstrap-icons-inserttag/issues",
         "source": "https://github.com/contao-themes-net/bootstrap-icons-inserttag",
         "donate": "https://contao-themes.net/sponsoring.html"
+    },
+    "scripts": {
+        "all": [
+            "@cs-fixer",
+            "@phpunit"
+        ],
+        "cs-fixer": "@php vendor/bin/ecs check src/ tests/ --fix --ansi",
+        "phpunit": "@php vendor\\bin\\phpunit --configuration phpunit.xml --coverage-text --log-junit report.xml"
     },
     "funding": [
         {
