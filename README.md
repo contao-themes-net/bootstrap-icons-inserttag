@@ -78,7 +78,7 @@ Die Konfiguration befindet sich unterhalb des Schlüssels ``bootstrap_config``.
 Zurzeit werden dort zwei weitere Schlüssel ausgewertet. Der Schlüssel ``source`` und der Schlüssel ``use``.
 
 ### source
-Da mit dem Bundle eine Fallback-Konfiguration mitgeliefert (Scirpt, Fonts, SVG und CSS von Bootstrap Icons 1.9.1) wird,
+Da mit dem Bundle eine Fallback-Konfiguration mitgeliefert (Script, Fonts, SVG und CSS von Bootstrap Icons 1.9.1) wird,
 kann hier mit dem Schlüssel ``use_cdn: true`` das Laden vom CDN aktiviert oder deaktiviert werden.
 Ist ``use_cdn`` auf false gesetzt, dann werden die lokalen Bundle-Assets verwendet, damit das Bundle bei
 Versionsänderungen im CDN lauffähig bleibt.
