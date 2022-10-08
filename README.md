@@ -89,7 +89,7 @@ Voreingestellt sind o.g. Quellen.
 ### use
 Mit dem Schlüssel ``use`` können die beiden Darstellungsmethoden der Icons festgelegt werden.
 Fallback ist ``icon_font: true``. Beide Schlüssel können auf ``true`` gesetzt sein.
-**Es können aber (in der aktuelle Version) nicht beide Darstellungsmethoden zugleich verwendet werden!**
+**Es können aber (in der aktuellen Version) nicht beide Darstellungsmethoden zugleich verwendet werden!**
 Soll statt Icon Font die Methode SVG zum Einsatz kommen, so muss ``icon_font: false`` und ``svg: true`` gesetzt sein.
 Andernfalls tritt immer der Fallback ``icon_font: true`` ein.
 
